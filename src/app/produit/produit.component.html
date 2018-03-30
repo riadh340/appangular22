@@ -1,0 +1,57 @@
+<div class="container " ng-app="formvalid">
+  <div class="panel" data-ng-controller="validationCtrl">
+  <div class="panel-heading border">
+  	<h2  >Ajouter  Produit
+    </h2>
+    <h2></h2>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nom D'article" value="">
+  </mat-form-field>
+<div class="categorie">
+
+  <mat-form-field>
+  <mat-select placeholder="Catégorie">
+    <mat-option *ngFor="let sexe of sexes" [value]="sexe.value">
+      {{ sexe.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-button routerLink="/categorie">ajouter une catégorie  </button>
+</div>
+
+
+   <mat-form-field class="example-full-width">
+    <input matInput placeholder="Fournisseur" value="">
+
+  </mat-form-field>
+
+ <mat-form-field class="example-full-width">
+    <input matInput placeholder="Fabricant" value="">
+  </mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Prix D'achat (Sans Taxes)" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Prix ​​De Vente" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Prix Promotionnel" value="">
+  </mat-form-field>
+
+ 
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Description"></textarea>
+  </mat-form-field>
+
+  <mat-chip-list>
+  
+  <mat-chip color="primary" selected="true">Enregistrer</mat-chip>
+  <mat-chip color="accent" selected="true">Annuler</mat-chip>
+</mat-chip-list>
+</form>
+</div>
+</div>
+</div>

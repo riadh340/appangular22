@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta charset = "UTF-8" name = "viewport" content = "width=device-width, initial-scale=1" />
+
+  </head>
+
+  <body ng-app = "myModule" ng-controller = "myController">
+<nav class = "navbar navbar-default">
+    <div class = "container-fluid">
+   
+    </div>
+  </nav>
+  <!-- panel shoping + liste des produit -->
+<div class = "col-md-2"></div>
+<div class = "col-md-8 well">
+    <h3 class = "text-primary">Shopping Cart </h3>
+    <hr style = "border-top:1px dotted #ccc;"/>
+  
+  <div id = "bg-background" class = "col-md-7">
+      <h4>PRODUCTS</h4>
+      <div id = "p_list"  *ngFor="let product of products " >
+          <h5>{{product.p_name}}</h5>
+          
+          <div><label>Price:{{product.p_price}} </label></div>
+              <h5 data-toggle="modal" data-target="#popupquantite" >Quantite</h5>
+                              
+          
+           
+      <div   >
+            <button  type = "button"   (click) = "add_cart(product)" (click) = "add_cartprice(product,quantite)"   (click) = "gettotal()"   >
+              <span class = "glyphicon glyphicon-shopping-cart">
+              
+            </span> Add to cart
+          </button>
+     </div>
+        </div>
+         
+        <script type="text/javascript">
+          $.notify("Access granted", "success") ;
+        </script>
+  
+    
+  </div>
+   <!-- chart -->
+  <div class = "pull-right col-md-5">
+      <div class = "panel panel-primary">
+        <div class = "panel-heading">
+          <h5>MY CART</h5>
+        </div>
+        <div class = "panel-body table-responsive" >
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  clients
+</button>
+<!-- popup liste des clients -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title" id="quantityTitle">Client</h3>
+                <div class="modal-picto-container">
+                    <div class="modal-picto">
+                        <span class="picto-quantite"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body-margin clearfix">
+                    <form method="post" action="#formQuantity">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label  class="control-label">choisir  un client </label>
+                                    <table class = "table">
+
+            <thead>
+              <tr>
+                <th>name</th>
+                <th>prenom</th>
+                <th>CIN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of clients "  >
+                <td  >{{client.p_name}}</td>
+                <td  >{{client.p_prenom}}</td>
+                <td  >{{client.p_cin}}</td>
+                <td  > <button type="button" type="button" class="close" data-dismiss="modal" aria-label="Close" (click) = "add_client(client)"  class="btn btn-primary modal-foote ">Ajouter</button> </td>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                       
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+  
+</div>
+<!-- popup paiement -->
+<div class="modal fade" id="popuppayement" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+ <div class="modal-dialog modal-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title" id="quantityTitle">moyen de paiement</h3>
+                <div class="modal-picto-container">
+                    <div class="modal-picto">
+                        <span class="picto-quantite"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body-margin clearfix">
+                    <form method="post" action="#formQuantity">
+                        <button type="button" class="btn btn-default clickable ui-droppable" data-id="14" data-name_generic="Espèces (EUR)" data-name_pay_in="Espèces (EUR)" data-name_payback="Rendu espèces (EUR)" data-sortposition="1" data-pay_in_allowed="1" data-payback_allowed="1" data-customer_id_required="0" data-generate_id_on_issue="0" data-print_new_ticket="0" data-enter_id_on_issue="0" data-control_on_recovery="0" data-enter_id_on_recovery="0" data-facial_value="0" data-validity_duration="0" data-enter_delivery_date="0" data-cashfund_manage="1" data-cashfund_closing_manage="1" data-transaction_monitoring="0" data-available_in_functions="0" data-update_amount_in_recovery="0" data-id_barcode_model="" data-id_secondary_barcode_model="" data-id_currency="1" data-id_tender_family="4" data-symbol="€" data-opencashdrawer="1" data-use_tpe="0" data-color="#ff8040" data-image="paiement-especes.png" data-idparent="0" data-idtender="5" style="width: 112px; height: 112px; word-wrap: break-word; transition: none; display: inline-block; background: rgb(255, 128, 64);"><div><img src="https://www.clic-till.com/assets/img/payment_mode/paiement-especes.png" alt=""></div>Espèces</button>
+                        <button type="button" class="btn btn-default clickable ui-droppable" data-id="98" data-name_generic="Carte Bancaire" data-name_pay_in="Carte Bancaire" data-name_payback="Carte Bancaire" data-sortposition="2" data-pay_in_allowed="1" data-payback_allowed="1" data-customer_id_required="0" data-generate_id_on_issue="0" data-print_new_ticket="0" data-enter_id_on_issue="0" data-control_on_recovery="0" data-enter_id_on_recovery="0" data-facial_value="0" data-validity_duration="0" data-enter_delivery_date="0" data-cashfund_manage="0" data-cashfund_closing_manage="1" data-transaction_monitoring="0" data-available_in_functions="0" data-update_amount_in_recovery="0" data-id_barcode_model="" data-id_secondary_barcode_model="" data-id_currency="1" data-id_tender_family="3" data-symbol="€" data-opencashdrawer="0" data-use_tpe="0" data-color="#0988c4" data-image="Visa.png" data-idparent="0" data-idtender="4" style="width: 112px; height: 112px; word-wrap: break-word; transition: none; display: inline-block; background: rgb(9, 136, 196);"><div><img src="https://www.clic-till.com/assets/img/payment_mode/Visa.png" alt=""></div>Carte Bancaire</button>
+                        <button type="button" class="btn btn-default clickable ui-droppable" data-id="47" data-name_generic="Chèque" data-name_pay_in="Chèque" data-name_payback="Chèque" data-sortposition="3" data-pay_in_allowed="1" data-payback_allowed="0" data-customer_id_required="0" data-generate_id_on_issue="0" data-print_new_ticket="0" data-enter_id_on_issue="0" data-control_on_recovery="0" data-enter_id_on_recovery="1" data-facial_value="0" data-validity_duration="0" data-enter_delivery_date="0" data-cashfund_manage="0" data-cashfund_closing_manage="1" data-transaction_monitoring="0" data-available_in_functions="0" data-update_amount_in_recovery="0" data-id_barcode_model="" data-id_secondary_barcode_model="" data-id_currency="1" data-id_tender_family="6" data-symbol="€" data-opencashdrawer="0" data-use_tpe="0" data-color="#f74bbe" data-image="cheque.png" data-idparent="0" data-idtender="43" style="width: 112px; height: 112px; word-wrap: break-word; transition: none; display: inline-block; background: rgb(247, 75, 190);"><div><img src="https://www.clic-till.com/assets/img/payment_mode/cheque.png" alt=""></div>Chèque</button>
+                        <button type="button" class="btn btn-default clickable ui-droppable" data-id="80" data-name_generic="Bon cadeau" data-name_pay_in="Reprise Bon cadeau" data-name_payback="Emission cadeau" data-sortposition="9" data-pay_in_allowed="1" data-payback_allowed="1" data-customer_id_required="0" data-generate_id_on_issue="1" data-print_new_ticket="0" data-enter_id_on_issue="0" data-control_on_recovery="1" data-enter_id_on_recovery="0" data-facial_value="0" data-validity_duration="20" data-enter_delivery_date="0" data-cashfund_manage="0" data-cashfund_closing_manage="1" data-transaction_monitoring="0" data-available_in_functions="1" data-update_amount_in_recovery="0" data-id_barcode_model="35" data-id_secondary_barcode_model="21" data-id_currency="1" data-id_tender_family="1" data-symbol="€" data-opencashdrawer="0" data-use_tpe="0" data-color="#fe8f00" data-image="cadeau.png" data-idparent="0" data-idtender="44" style="width: 112px; height: 112px; word-wrap: break-word; transition: none; display: inline-block; background: rgb(254, 143, 0);"><div><img src="https://www.clic-till.com/assets/img/payment_mode/cadeau.png" alt=""></div>Bon cadeau</button>
+                        <hr>
+                        <button type="submit" class="btn btn-custom pull-right  " id="quantityValidate" data-action="quantityValidate" data-id="910"  data-dismiss="modal" ><span class="glyphicon glyphicon-ok"></span> Valider</button>
+                       
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+<!-- popup quantite -->
+<div class="modal fade" id="popupquantite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+ <div class="modal-dialog modal-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title" id="quantityTitle">Quantité</h3>
+                <div class="modal-picto-container">
+                    <div class="modal-picto">
+                        <span class="picto-quantite"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body-margin clearfix">
+                    <form method="post" action="#formQuantity">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label for="valueQuantity" class="control-label">Saisir une quantité</label>
+                                    <input type="number" class="form-control input-lg selectOnFocus textRight" id="valueQuantity" name="valueQuantity"  [(ngModel)]="quantite" value="" step="any" min="-999999999999" max="999999999999" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-custom pull-right  " id="quantityValidate" data-action="quantityValidate" data-id="910"  data-dismiss="modal"           ><span class="glyphicon glyphicon-ok"></span> Valider</button>
+                       
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- table de client dans chart -->
+ <table class = "table">
+    <thead>
+              <tr>
+                <th>name</th>
+                <th>prenom</th>
+                <th>CIN</th>
+              </tr>
+            </thead>
+             <tbody>
+              <tr *ngFor="let clientch of clientsch "  >
+                <td  >{{clientch.p_name}}</td>
+                <td>{{clientch.p_prenom}}</td>
+                <td>{{clientch.p_cin}}</td>
+                
+              </tr>
+              </tbody>
+            </table>
+
+<!-- table de produits dans chart -->
+          <table class = "table">
+
+            <thead>
+              <tr>
+                <th>Product</th>
+               <th>Quantite</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead> 
+            <tbody>
+              <tr *ngFor="let cart of carts "  >
+                <td >{{cart.p_name}}</td>
+                <td   >{{cart.p_quantite}}</td>
+                <td>{{cart.p_price*cart.p_quantite}}</td>
+                <td><button type = "button" (click)= "remove_cart(cart)"  class = "btn btn-danger"><span class = "glyphicon glyphicon-remove"></span></button></td>
+              </tr>
+              <div>
+                <!-- table de calcule dans chart -->
+
+           <table class="table">
+  
+     <tbody>
+    <tr>
+      
+      <th scope="row">Sous Total</th>
+     
+      <td>{{totalprice}}</td>
+   
+    </tr>
+      <tr>
+      <th scope="row"> Remise</th>
+      
+      <td>
+        <input type="code" class="form-control" (keyup)= "getremise(code)" [(ngModel)]="code"   aria-describedby="emailHelp" placeholder="Enter code">
+      </td>
+  </tr>
+   <tr>
+      <th scope="row" > TVA</th>
+     
+      
+      <td>{{tva}}</td>
+      
+     
+    </tr>
+    
+      <tr>
+      <th scope="row" >Total(TCC)</th>
+      
+      
+      <td>{{totalpriceremise}}</td>
+      
+     
+    </tr>
+    </tbody>
+          </table>
+          </div>
+            </tbody>
+          </table>
+          <!-- fin table golabal de chart -->
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#popuppayement">Success</button>
+          <button type="button" class="btn btn-danger" routerLink="/liste-employe" >Annuler</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+</body> 
+  </html>

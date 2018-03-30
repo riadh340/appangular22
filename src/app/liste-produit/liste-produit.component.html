@@ -1,0 +1,71 @@
+<!-- panel liste des produit -->
+<div class="container" ng-app="formvalid">
+  <div class="panel" data-ng-controller="validationCtrl">
+  <div class="panel-heading border">  
+  <div class="row">     
+    <h2 class="col-sm-4">Liste des produits
+    </h2>
+    <span class="col-sm-6 " ></span>
+    <button type="button" routerLink="/produit" class="btn btn-success col-sm-2 buttomajouter">+ Produit</button> 
+ 
+  </div>
+<!-- partie recherche -->
+  <div class="panel-body">
+    <div class="example-header">
+    <mat-form-field class="example-full-width">
+        <input  matInput placeholder="Recherche" [(ngModel)]="term">
+
+</mat-form-field>
+
+  </div>
+
+  <!-- table des produit -->
+      <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable" ui-options="dataTableOpt">
+      <thead>
+        <tr >
+          <th>Actions</th>
+          <th>ID de l'article</th>
+          <th>Nom</th>
+          <th>Catégorie</th>
+          <th>Prix d'achat</th>
+          <th>Prix ​​de vente</th>
+          <th>Quantité</th>
+        </tr>
+      </thead>
+       <tr *ngFor="let h of results | appPipe:term ">
+      <td > <div class="row">
+           <i class="material-icons col-sm-4 ">print</i>
+           <i class="material-icons col-sm-4 delete">delete</i>
+           <i class="material-icons col-sm-4 delete">update</i>
+           </div>
+            </td>
+            <td >
+                {{h.id}}
+            </td>
+    <td >
+                {{h.id}}
+            </td>
+             <td >
+                {{h.id}}
+            </td>
+             <td >
+                {{h.id}}
+            </td>
+             <td >
+                {{h.id}}
+            </td>
+             <td >
+                {{h.id}}
+            </td>
+
+    </table>
+
+    <!-- pagination -->
+    <mat-paginator #paginator
+               [length]=" 100 "
+              [pageSize]=" 10 "
+              [pageSizeOptions]="[ 5, 10, 25, 100]" >
+</mat-paginator>
+  </div>
+</div>
+</div>

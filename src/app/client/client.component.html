@@ -1,0 +1,72 @@
+<div class="container " ng-app="formvalid">
+  <div class="panel" data-ng-controller="validationCtrl">
+  <div class="panel-heading border">
+  	<h2  >Ajouter  client 
+    </h2>
+    <h2></h2>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nom" value="">
+  </mat-form-field>
+
+   <mat-form-field class="example-full-width">
+    <input matInput placeholder="Prenon" value="">
+
+  </mat-form-field>
+  <mat-form-field>
+  <mat-select placeholder="Sexe">
+    <mat-option *ngFor="let sexe of sexes" [value]="sexe.value">
+      {{ sexe.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+ <mat-form-field class="example-full-width">
+    <input matInput placeholder="Courriel" value="">
+  </mat-form-field>
+
+ <mat-form-field class="example-full-width">
+    <input matInput placeholder="Téléphone" value="">
+  </mat-form-field>
+
+  <mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Date de naissance">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+ <h1>Adresse</h1>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Adresse 1" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Adresse 2" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Ville" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="État/Province" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code Postal" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Pays" value="">
+  </mat-form-field>
+
+ 
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+
+  <mat-chip-list>
+  
+  <mat-chip color="primary" selected="true">Enregistrer</mat-chip>
+  <mat-chip color="accent" selected="true">Annuler</mat-chip>
+</mat-chip-list>
+</form>
+</div>
+</div>
+</div>

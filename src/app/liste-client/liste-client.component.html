@@ -1,0 +1,30 @@
+<div class="container" ng-app="formvalid">
+  <div class="panel" data-ng-controller="validationCtrl">
+  <div class="panel-heading border"> 
+  <div class="row">   
+    <h2 class="col-sm-4" >Liste des clients 
+    </h2>
+
+    <span class="col-sm-6 " ></span>
+    <button type="button" routerLink="/client" class="btn btn-success col-sm-2 buttomajouter">+ Client</button> 
+ 
+  </div>
+
+  <div class="panel-body">
+      <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable" ui-options="dataTableOpt">
+      <thead>
+        <tr>
+          <th>Actions</th>
+          <th>ID personne</th>
+          <th>Nom</th>
+          <th>Prenon</th>
+          <th>Courriel</th>
+          <th>Téléphone</th>
+        </tr>
+      </thead>
+        
+    </table>
+  </div>
+</div>
+</div>
+

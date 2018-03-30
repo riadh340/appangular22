@@ -1,0 +1,115 @@
+<div class="container " ng-app="formvalid">
+  <div class="panel" data-ng-controller="validationCtrl">
+  <div class="panel-heading border">
+  	<h2  >Ajouter un employé
+    </h2>
+    <h2></h2>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nom" value="">
+  </mat-form-field>
+
+   <mat-form-field class="example-full-width">
+    <input matInput placeholder="Prenon" value="">
+
+  </mat-form-field>
+  <mat-form-field>
+  <mat-select placeholder="Sexe">
+    <mat-option *ngFor="let sexe of sexes" [value]="sexe.value">
+      {{ sexe.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+    <mat-form-field class="example-full-width">
+    <input matInput placeholder="Courriel" value="">
+  </mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Téléphone" value="">
+  </mat-form-field>
+
+  <mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Date de naissance">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+
+ <h1>Adresse</h1>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Adresse 1" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Adresse 2" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Ville" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="État/Province" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code Postal" value="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Pays" value="">
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+
+ 
+</form>
+</div>
+</div>
+ <div class="panel" data-ng-controller="validationCtrl">
+  <div class="panel-heading border">
+<h1>Information d'accès de l'employé</h1>
+<div class="example-container">
+	<mat-form-field class="example-full-width">
+    <input matInput placeholder="Nom D'utilisateur" value="">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Mot De Passe" [type]="hide ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
+
+</div>
+
+</div>
+</div>
+<div class="panel" data-ng-controller="validationCtrl">
+  <div class="panel-heading border">
+<h1>Permission et accès</h1>
+<div class="example-container">
+<mat-slide-toggle>Ajouter, mettre à jour, Effacer des clients </mat-slide-toggle>
+<h1></h1>
+<mat-slide-toggle>Ajouter, mettre à jour, Effacer des Produits</mat-slide-toggle>
+<h1></h1>
+<mat-slide-toggle>Modifier la quantité</mat-slide-toggle>
+<h1></h1>
+<mat-slide-toggle>Gérer les catégories</mat-slide-toggle>
+<h1></h1> 
+<mat-slide-toggle>Gérer les fabricants</mat-slide-toggle>
+<h1></h1> 
+<mat-slide-toggle>Rapports</mat-slide-toggle>
+<h1></h1> 
+<mat-slide-toggle>Gérer les ventes</mat-slide-toggle> 
+ 
+</div>
+<h2></h2>
+ <mat-chip-list>
+  
+  <mat-chip color="primary" selected="true">Enregistrer</mat-chip>
+  <mat-chip color="accent" selected="true">Annuler</mat-chip>
+</mat-chip-list>
+</div>
+</div>
+
+
+</div>
+

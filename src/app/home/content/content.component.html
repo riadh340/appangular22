@@ -1,0 +1,64 @@
+
+{{title}}
+
+
+<button (click)="decrement()" class="btn btn-danger">Decrement</button>
+<span>{{counter}}</span>
+<button (click)="increment()" class="btn btn-success">Increment</button>
+<hr>
+
+
+<div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" [(ngModel)]="name">
+</div>
+
+<div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" [(ngModel)]="email">
+</div>
+
+<div class="form-group">
+    <label>Phone</label>
+    <input type="number" class="form-control" [(ngModel)]="phone">
+</div>
+<mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Date de naissance">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<div class="form-group">
+    <label>About</label>
+    <textarea class="form-control" [(ngModel)]="about"></textarea>
+</div>
+
+<input type="button" class="btn btn-success" value="submit" (click)="submit()">
+
+<hr>
+<p [ngClass]="{ card: true, dark: false, flat: flat }">
+    Liste des heores:
+</p>
+
+<mat-form-field class="example-full-width">
+        <input matInput placeholder="Favorite hero" [(ngModel)]="term">
+</mat-form-field>
+
+<table class="table" appMydirective>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+    </tr>
+    <tr *ngFor=" let p of HEROES | appPipe:term">
+      
+            <td  >
+                {{p.id}}
+            </td>
+            <td  >
+                {{p.name}}
+            </td>
+        
+        
+    </tr>
+</table>
+
+

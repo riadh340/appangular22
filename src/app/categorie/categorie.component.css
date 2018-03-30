@@ -1,0 +1,24 @@
+table tr th{
+  background:#337ab7;
+  color:white;
+  text-align:left;
+  vertical-align:center;
+}
+.panel{
+	background-color: #F5F5F5 ;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.buttomajouter{
+
+	   
+	        float: right;
+    margin-top: 25px;
+    margin-right: 30px;
+}
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+.nom{
+  display: block;
+}
